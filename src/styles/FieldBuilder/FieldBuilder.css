@@ -1,0 +1,54 @@
+.field-modal {
+  width: 50vw;
+  max-width: 50vw;
+}
+
+.buttonContainer {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.modal-backdrop {
+  background-color: white;
+}
+
+.modal-title {
+  color: #197bc9;
+}
+
+.modal-header {
+  background: rgb(174, 208, 230, 0.5);
+}
+
+.modal-content {
+  border: 1px solid rgb(175, 200, 224);
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.button {
+  background: #0db531;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  margin: 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: center;
+}
+
+#buttonCancel {
+  background: none;
+  color: red;
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+#centeredY {
+  margin-left: 40px;
+  margin-top: 33px;
+  position: absolute;
+}
