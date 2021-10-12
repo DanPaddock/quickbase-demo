@@ -52,7 +52,7 @@ const FieldBuilder = () => {
 
   const handleCancel = (e) => {
     setLabel("");
-    setText();
+    setText("");
     setType("multi");
     setRequired(true);
     setChoices("");
