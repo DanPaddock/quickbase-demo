@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import "../../styles/FieldBuilder/FieldBuilder.css";
 
@@ -15,6 +16,7 @@ const FieldBuilder = () => {
   const [choices, setChoices] = useState();
   const [text, setText] = useState();
   const [displayAlpha, setDisplayAlpha] = useState("true");
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,6 +35,10 @@ const FieldBuilder = () => {
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4 && xhr.status === 200) {
+        setShowSuccess(true);
+        setTimeout(function () {
+          setShowSuccess(false);
+        }, 1000);
         console.log(this.responseText);
         console.log(data);
       }
@@ -58,6 +64,7 @@ const FieldBuilder = () => {
     setChoices("");
     setDisplayAlpha("true");
     setDefaultValue("");
+    setShowSuccess(false);
   };
 
   const handleTextArea = (e) => {
@@ -167,6 +174,15 @@ const FieldBuilder = () => {
               </Col>
             </Form.Group>
 
+            <div className="buttonContainer">
+              <Alert
+                show={showSuccess}
+                variant="success"
+                className="w-25 mt-3 ml-3 "
+              >
+                Field Submitted!
+              </Alert>
+            </div>
             <div className="buttonContainer">
               <Button className="button" variant="primary" type="submit">
                 Submit
