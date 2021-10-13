@@ -71,7 +71,7 @@ const FieldBuilder = () => {
     setText(e.target.value);
     setChoices(
       e.target.value.split("\n").filter(function (item, pos, self) {
-        return self.indexOf(item) === pos && pos < 50 && item.length > 0;
+        return self.indexOf(item) === pos && item.length > 0 && pos < 50;
       })
     );
   };
@@ -98,7 +98,6 @@ const FieldBuilder = () => {
                 />
               </Col>
             </Form.Group>
-
             <Form.Group as={Row} className="mb-3">
               <Form.Label column sm={3}>
                 Type
@@ -123,7 +122,6 @@ const FieldBuilder = () => {
                 />
               </Col>
             </Form.Group>
-
             <Form.Group as={Row} className="mb-3">
               <Form.Label column sm={3}>
                 Default Value
@@ -138,7 +136,6 @@ const FieldBuilder = () => {
                 />
               </Col>
             </Form.Group>
-
             <Form.Group as={Row} className="mb-3">
               <Form.Label column sm={3}>
                 Choices
@@ -153,7 +150,6 @@ const FieldBuilder = () => {
                 />{" "}
               </Col>
             </Form.Group>
-
             <Form.Group as={Row} className="mb-3">
               <Form.Label column sm={3}>
                 Order
@@ -173,16 +169,6 @@ const FieldBuilder = () => {
                 </Form.Control>
               </Col>
             </Form.Group>
-
-            <div className="buttonContainer">
-              <Alert
-                show={showSuccess}
-                variant="success"
-                className="w-25 mt-3 ml-3 "
-              >
-                Field Submitted!
-              </Alert>
-            </div>
             <div className="buttonContainer">
               <Button className="button" variant="primary" type="submit">
                 Submit
@@ -191,6 +177,15 @@ const FieldBuilder = () => {
               <Button id="buttonCancel" onClick={handleCancel}>
                 Cancel
               </Button>
+            </div>
+            <div className="buttonContainer">
+              <Alert
+                show={showSuccess}
+                variant="success"
+                className="w-25 mt-3 ml-3 "
+              >
+                Field submitted!
+              </Alert>
             </div>
           </Form>
         </Modal.Body>
